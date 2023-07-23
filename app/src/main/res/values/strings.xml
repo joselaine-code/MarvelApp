@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MarvelApp</string>
+    <string name="ocorreu_um_erro">Ocorreu um erro</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+</resources>
