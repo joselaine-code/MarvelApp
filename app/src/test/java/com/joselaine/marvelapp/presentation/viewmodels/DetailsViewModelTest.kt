@@ -27,7 +27,7 @@ class DetailsViewModelTest {
     @Before
     fun setup() {
         getCharacterUseCase = mockk()
-        viewModel = DetailsViewModel(getCharacterUseCase)
+        viewModel = DetailsViewModel(getCharacterUseCase, mainCoroutineRule.testDispatcherProvider)
     }
 
     @After
