@@ -49,4 +49,3 @@ Não importa se você é um fã de longa data ou está apenas começando a se av
   PUBLIC_KEY="examplePublicKey"
   PRIVATE_KEY="examplePrivateKey"  
 ```
-# MarvelApp
