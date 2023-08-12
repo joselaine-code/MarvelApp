@@ -10,6 +10,7 @@ Não importa se você é um fã de longa data ou está apenas começando a se av
 ## Tecnologias utilizadas
 - MVVM com Clean Architecture
 - Hilt (Injeção de dependência)
+- Kotlin KTS para arquivos de build
 - Flow
 - Retrofit
 - OkHttp

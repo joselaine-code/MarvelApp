@@ -7,10 +7,9 @@ plugins {
     id("kotlin-android")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
+    id("io.gitlab.arturbosch.detekt")
     kotlin("kapt")
 }
-
-apply(from = file("../config/detekt/detekt.gradle"))
 
 val keyStoreFile = rootProject.file("keystore.properties")
 val keyStoreProperties = Properties().apply {
@@ -43,11 +42,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -115,6 +114,16 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
 }
 
-kapt {
-    correctErrorTypes = true
+tasks.named("preBuild") {
+    dependsOn("detekt")
+}
+
+detekt {
+    toolVersion = "1.23.1"
+    val inputDirFiles = rootProject.subprojects.map { module ->
+        "${module.projectDir}/src/main/java"
+    }
+    source.setFrom(files(inputDirFiles))
+    config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
+    autoCorrect = true
 }

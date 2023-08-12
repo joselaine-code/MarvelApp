@@ -6,3 +6,7 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.46.1" apply false
     id("io.gitlab.arturbosch.detekt") version "1.23.1" apply false
 }
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "1.8"
+}
