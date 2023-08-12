@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
@@ -28,7 +29,6 @@ fun MarvelDetails(data: MarvelCharacter) {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         val imagePainter = rememberAsyncImagePainter(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(data.imageUrl)
@@ -47,7 +47,7 @@ fun MarvelDetails(data: MarvelCharacter) {
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = data.name,
-            style = MaterialTheme.typography.h5,
+            style = MaterialTheme.typography.h5.copy(fontWeight = FontWeight.Bold),
             color = Color.Black,
             modifier = Modifier.padding(16.dp)
         )

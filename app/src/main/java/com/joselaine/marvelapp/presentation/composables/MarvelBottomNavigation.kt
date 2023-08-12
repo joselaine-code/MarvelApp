@@ -29,7 +29,7 @@ fun MarvelBottomNavigation(navController: NavController) {
         backgroundColor = RedMarvel,
         modifier = Modifier
             .height(70.dp)
-            .clip(shape = RoundedCornerShape(10.dp)),
+            .clip(shape = RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp)),
         elevation = 16.dp
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
