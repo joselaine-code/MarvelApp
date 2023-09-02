@@ -11,6 +11,7 @@ Não importa se você é um fã de longa data ou está apenas começando a se av
 - MVVM com Clean Architecture
 - Hilt (Injeção de dependência)
 - Kotlin KTS para arquivos de build
+- VersionCatalog e KSP
 - Flow
 - Retrofit
 - OkHttp
