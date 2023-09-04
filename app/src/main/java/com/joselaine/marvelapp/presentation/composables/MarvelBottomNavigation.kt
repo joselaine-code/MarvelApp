@@ -13,10 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.joselaine.marvelapp.presentation.screens.Screens
 import com.joselaine.marvelapp.presentation.ui.theme.RedMarvel
 
@@ -66,4 +68,10 @@ fun MarvelBottomNavigation(navController: NavController) {
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun MarvelBottomNavigationPreview() {
+    MarvelBottomNavigation(rememberNavController())
 }

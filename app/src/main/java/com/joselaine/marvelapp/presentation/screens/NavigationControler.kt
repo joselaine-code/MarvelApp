@@ -1,5 +1,6 @@
 package com.joselaine.marvelapp.presentation.screens
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -26,9 +27,12 @@ fun NavigationController() {
 
     Scaffold(
         backgroundColor = Color.White,
+        content = { innerPadding ->
+            Box(modifier = Modifier.padding(innerPadding)) {
+                ScreenController(navController)
+            }
+        },
         bottomBar = { MarvelBottomNavigation(navController) },
         topBar = { MarvelTopBar() }
-    ) { innerPadding ->
-        ScreenController(modifier = Modifier.padding(innerPadding), navController)
-    }
+    )
 }

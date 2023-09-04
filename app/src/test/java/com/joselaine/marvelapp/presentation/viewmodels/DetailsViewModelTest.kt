@@ -1,7 +1,10 @@
 package com.joselaine.marvelapp.presentation.viewmodels
 
 import com.joselaine.marvelapp.domain.models.MarvelCharacter
+import com.joselaine.marvelapp.domain.usecase.AddFavoriteUseCase
+import com.joselaine.marvelapp.domain.usecase.CheckFavoriteUseCase
 import com.joselaine.marvelapp.domain.usecase.GetCharacterUseCase
+import com.joselaine.marvelapp.domain.usecase.RemoveFavoriteUseCase
 import com.joselaine.marvelapp.domain.usecase.base.ResultStatus
 import com.joselaine.marvelapp.utils.MainCoroutineRule
 import io.mockk.clearAllMocks
@@ -21,13 +24,21 @@ class DetailsViewModelTest {
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
-    private lateinit var getCharacterUseCase: GetCharacterUseCase
+    private val getCharacterUseCase = mockk<GetCharacterUseCase>()
+    private val checkFavoriteUseCase = mockk<CheckFavoriteUseCase>()
+    private val addFavoriteUseCase = mockk<AddFavoriteUseCase>()
+    private val removeFavoriteUseCase = mockk<RemoveFavoriteUseCase>()
     private lateinit var viewModel: DetailsViewModel
 
     @Before
     fun setup() {
-        getCharacterUseCase = mockk()
-        viewModel = DetailsViewModel(getCharacterUseCase, mainCoroutineRule.testDispatcherProvider)
+        viewModel = DetailsViewModel(
+            getCharacterUseCase,
+            checkFavoriteUseCase,
+            addFavoriteUseCase,
+            removeFavoriteUseCase,
+            mainCoroutineRule.testDispatcherProvider
+        )
     }
 
     @After

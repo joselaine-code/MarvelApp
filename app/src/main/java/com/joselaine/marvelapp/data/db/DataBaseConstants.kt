@@ -2,6 +2,11 @@ package com.joselaine.marvelapp.data.db
 
 object DataBaseConstants {
     const val APP_DATABASE_NAME = "database_marvelapp"
+    const val FAVORITES_TABLE_NAME = "favorites"
+    const val FAVORITES_COLUMN_INFO_ID = "id"
+    const val FAVORITES_COLUMN_INFO_NAME = "name"
+    const val FAVORITES_COLUMN_INFO_DESCRIPTION = "description"
+    const val FAVORITES_COLUMN_INFO_IMAGE_URL = "image_url"
     const val CHARACTERS_TABLE_NAME = "characters"
     const val CHARACTERS_COLUMN_INFO_ID = "id"
     const val CHARACTERS_COLUMN_INFO_NAME = "name"

@@ -20,7 +20,7 @@ class MarvelCharacterFactory {
     }
 
     sealed class Hero {
-        object ThreeDMan : Hero()
-        object ABomb : Hero()
+        data object ThreeDMan : Hero()
+        data object ABomb : Hero()
     }
 }

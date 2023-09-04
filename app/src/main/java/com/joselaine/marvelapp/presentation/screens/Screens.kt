@@ -7,9 +7,9 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Screens(val route: String, var label: String, val icon: ImageVector) {
-    object Home : Screens(RouteHome, "Home", Icons.Default.Home)
-    object Favorites : Screens(RouteFavorites, "Favorites", Icons.Default.Star)
-    object Details : Screens(RouteDetails, "", Icons.Default.Person)
+    data object Home : Screens(RouteHome, "Home", Icons.Default.Home)
+    data object Favorites : Screens(RouteFavorites, "Favorites", Icons.Default.Star)
+    data object Details : Screens(RouteDetails, "", Icons.Default.Person)
 }
 
 const val RouteHome = "home"

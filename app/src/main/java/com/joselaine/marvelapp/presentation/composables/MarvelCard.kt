@@ -41,14 +41,14 @@ fun MarvelCard(
         onClick = { clickOnCharacter() },
         shape = RoundedCornerShape(8.dp),
     ) {
+
         Box(modifier = Modifier.fillMaxSize()) {
             val imagePainter = rememberAsyncImagePainter(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(characterItem.imageUrl)
                     .crossfade(true)
-                    .build(),
+                    .build()
             )
-
             Image(
                 painter = imagePainter,
                 contentDescription = "Imagem ${characterItem.name}",
@@ -81,9 +81,9 @@ private const val OverlayAlpha = 0.5f
 
 @Preview
 @Composable
-fun OverlayCardPreview() {
+fun MarvelCardPreview() {
     val characterItem = CharacterItem(
-        name = "Exemplo",
+        name = "Example of Hero",
         imageUrl = "https://i.annihil.us/u/prod/marvel/i/mg/b/b0/4ce59ea2103ac.jpg"
     )
 

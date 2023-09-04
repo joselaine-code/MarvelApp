@@ -6,12 +6,13 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.PagingSource
 import androidx.paging.map
+import com.joselaine.marvelapp.data.datasources.CharactersRemoteDataSource
 import com.joselaine.marvelapp.data.db.AppDatabase
-import com.joselaine.marvelapp.domain.repository.CharactersRepository
 import com.joselaine.marvelapp.domain.models.MarvelCharacter
-import com.joselaine.marvelapp.domain.usecase.base.ResultStatus
 import com.joselaine.marvelapp.domain.paging.CharactersPagingSource
 import com.joselaine.marvelapp.domain.paging.CharactersRemoteMediator
+import com.joselaine.marvelapp.domain.repository.CharactersRepository
+import com.joselaine.marvelapp.domain.usecase.base.ResultStatus
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -24,7 +25,6 @@ class CharactersRepositoryImpl @Inject constructor(
     override fun getCharacters(query: String): PagingSource<Int, MarvelCharacter> {
         return CharactersPagingSource(remoteDataSource, query)
     }
-
 
     @Suppress("TooGenericExceptionCaught")
     override suspend fun getCharacter(id: Int): ResultStatus<MarvelCharacter> {

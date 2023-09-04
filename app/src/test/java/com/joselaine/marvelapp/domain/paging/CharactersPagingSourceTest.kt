@@ -1,7 +1,7 @@
 package com.joselaine.marvelapp.domain.paging
 
 import androidx.paging.PagingSource
-import com.joselaine.marvelapp.data.repository.CharactersRemoteDataSource
+import com.joselaine.marvelapp.data.datasources.CharactersRemoteDataSource
 import com.joselaine.marvelapp.domain.models.MarvelCharacter
 import com.joselaine.marvelapp.utils.CharacterPagingFactory
 import com.joselaine.marvelapp.utils.MainCoroutineRule

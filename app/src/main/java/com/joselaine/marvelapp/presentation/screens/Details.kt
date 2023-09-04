@@ -19,7 +19,9 @@ fun Details(navController: NavController) {
     val viewModel: DetailsViewModel = hiltViewModel()
 
     LaunchedEffect(id) {
-        id?.let { viewModel.getDetails(it) }
+        id.takeIf { it != 0 }?.let {
+            viewModel.getDetails(it)
+        }
     }
 
     val state by viewModel.detailState.collectAsState()
@@ -31,7 +33,8 @@ fun Details(navController: NavController) {
 
         is ResultStatus.Success -> {
             val character = (state as ResultStatus.Success).data
-            MarvelDetails(character)
+            MarvelDetails(data =character, viewModel = viewModel)
+
         }
 
         is ResultStatus.Error -> {

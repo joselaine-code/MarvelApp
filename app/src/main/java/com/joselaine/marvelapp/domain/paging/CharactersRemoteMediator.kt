@@ -8,7 +8,7 @@ import androidx.room.withTransaction
 import com.joselaine.marvelapp.data.db.AppDatabase
 import com.joselaine.marvelapp.data.db.entity.CharacterEntity
 import com.joselaine.marvelapp.data.db.entity.RemoteKey
-import com.joselaine.marvelapp.data.repository.CharactersRemoteDataSource
+import com.joselaine.marvelapp.data.datasources.CharactersRemoteDataSource
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -23,7 +23,6 @@ class CharactersRemoteMediator @Inject constructor(
     private val characterDao = database.characterDao()
     private val remoteKeyDao = database.remoteKeyDao()
 
-    @Suppress("ReturnCount")
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, CharacterEntity>
@@ -79,7 +78,6 @@ class CharactersRemoteMediator @Inject constructor(
 
                 characterDao.insertAll(charactersEntities)
             }
-
             MediatorResult.Success(endOfPaginationReached = responseOffset >= totalCharacters)
         } catch (e: IOException) {
             MediatorResult.Error(e)
